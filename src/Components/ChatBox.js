@@ -1,19 +1,21 @@
 import { useState } from "react";
 import handleMsg from "../Modules/handleMsg";
+import { useSpeechSynthesis } from "react-speech-kit";
 
 function ChatBox() {
   const [msg, setMsg] = useState("");
+  const { speak } = useSpeechSynthesis();
 
   const handleSubmit = (event) => {
     event.preventDefault()
-    handleMsg(msg.toLowerCase())
+    speak({ text: handleMsg(msg.toLowerCase()) })
   }
 
   return (
     <div className="chatBox">
       <form onSubmit={handleSubmit} action="">
         <input
-          type="text"
+          type="text" 
           name="text"
           id="text"
           className="msg"

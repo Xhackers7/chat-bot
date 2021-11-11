@@ -1,7 +1,7 @@
-import understand from "./understand"
+import Understand from "./understand"
 
 function handleMsg(msg){
-    understand(msg)
+    return Understand(msg)
 }
 
 export default handleMsg
