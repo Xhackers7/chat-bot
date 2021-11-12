@@ -7,15 +7,16 @@ function ChatBox() {
   const { speak } = useSpeechSynthesis();
 
   const handleSubmit = (event) => {
-    event.preventDefault()
-    speak({ text: handleMsg(msg.toLowerCase()) })
-  }
+    event.preventDefault();
+    speak({ text: handleMsg(msg.toLowerCase()) });
+    setMsg("");
+  };
 
   return (
     <div className="chatBox">
       <form onSubmit={handleSubmit} action="">
         <input
-          type="text" 
+          type="text"
           name="text"
           id="text"
           className="msg"
@@ -29,4 +30,4 @@ function ChatBox() {
   );
 }
 
-export default ChatBox;  
+export default ChatBox;
